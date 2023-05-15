@@ -33,8 +33,8 @@ which are indicated by comments in the JavaScript source file:
 9. Create the SVG \<text\> elements for the legend's caption
 10. Create the SVG \<text\> elements for the second line of text in the legend
 
-The GeoJSON spec requires that all geographic data is in the EPSG:4326 spataial reference system, i.e., "latitude and longitude."
-Unfortunately, data is this \(spherical\) coordinate system looks odd when rendered in 2-dimensions, particularly when the
+The GeoJSON spec calls for all geographic data to be in the EPSG:4326 spataial reference system, i.e., "latitude and longitude."
+Unfortunately, data in this \(spherical\) coordinate system looks odd when rendered in 2-dimensions, particularly when the
 extent of the data is as large as Massachusetts.
 We consequently project the geographic data from EPSG:4326 to EPSG:26986, the _rectangular_ coordinate system used for all 
 Massachusetts data. Once projected, the data has to be scaled and "translated" \(i.e., moved in the 2-dimensional plane\) to
