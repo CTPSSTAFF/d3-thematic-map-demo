@@ -40,3 +40,18 @@ We consequently project the geographic data from EPSG:4326 to EPSG:26986, the _r
 Massachusetts data. Once projected, the data has to be scaled and "translated" \(i.e., moved in the 2-dimensional plane\) to
 fit within our SVG drawing area. While this step might seem daunting at first, once it is understood it can be applied in "boilerplate"
 fashion when generating other cartographic visualizations of data with the same geographic extent.
+
+## Running the app
+* Clone the repository into a directory, call it 'x'
+* 'cd x'
+* python -m http.server 8888 --bind localhost
+* In a web browser:
+  * http://localhost:8888
+
+## Colophon
+Author: [Ben Krepp](mailto:bkrepp@ctps.org)  
+Address: Central Transportation Planning Staff, Boston Region Metropolitan Planning Agency  
+10 Park Plaza  
+Suite 2150  
+Boston, MA 02116  
+United States
