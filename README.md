@@ -6,7 +6,6 @@ This demo loads the D3 library from a CDN.
 Presented at April 3, 2015 CommGIS meeting and at MassIT on April 24, 2015.
 The original version used version 3 of the d3.js library; it was migrated to version d3.js version 6 on January 6, 2021.
 
-
 <img src="img/d3-thematic-map-screenshot2.png"/>
 
 ## Internals
@@ -40,6 +39,23 @@ We consequently project the geographic data from EPSG:4326 to EPSG:26986, the _r
 Massachusetts data. Once projected, the data has to be scaled and "translated" \(i.e., moved in the 2-dimensional plane\) to
 fit within our SVG drawing area. While this step might seem daunting at first, once it is understood it can be applied in "boilerplate"
 fashion when generating other cartographic visualizations of data with the same geographic extent.
+
+The relevant code is as follows:
+```
+	// Define projection: Mass State Plane NAD 83 Meters.
+	// Standard parallels and rotation (grid origin latitude and longitude) from 
+	//     NOAA Manual NOS NGS 5: State Plane Coordinate System of 1983, p. 67.
+	// The scale and translation vector were determined empirically.
+	var projection = d3.geoConicConformal()
+		.parallels([41 + 43 / 60, 42 + 41 / 60])
+		.rotate([71 + 30 / 60, -41 ])
+		.scale([13000])
+		.translate([500,560]);
+```
+
+A copy of the [NOAA Manual NOS NGS 5: State Plane Coordinate System of 1983](https://github.com/CTPSSTAFF/d3-thematic-map-demo/blob/master/pdf/ManualNOSNGS5.pdf)
+is found in the 'pdf' subdirectory of this repository, for reference.
+A glance at it will reveal the source of the '.parallels' parameter to the d3.geoConicConformal projection call quoted above.
 
 ## Running the app
 * Clone the repository into a directory, call it 'x'
